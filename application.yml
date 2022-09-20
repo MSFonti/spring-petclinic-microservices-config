@@ -79,7 +79,15 @@ spring:
   datasource:
     schema: classpath*:db/mysql/schema.sql
     data: classpath*:db/mysql/data.sql
-    url: jdbc:mysql://springappsmysqlb3d5b2.mysql.database.azure.com:3306/petclinic?useSSL=true
-    username: myadmin@springappsmysqlb3d5b2
-    password: Home2Made4Stuf$
-    initialization-mode: ALWAYS
+    url: jdbc:mysql://springappsmysqlb3d5b2.mysql.database.azure.com:3306/petclinic?useSSL=false
+    initialization-mocom.azure.spring:spring-cloud-azure-starter-keyvault-secretsde: ALWAYS
+cloud:
+  azure:
+    keyvault:
+      secret:
+       property-source-enabled: true
+       property-sources:
+        - name: key-vault-property-source-1
+          endpoint: https://springappskvb3d5b2.vault.azure.net/
+          credential.managed-identity-enabled: true
+ 
