@@ -76,6 +76,12 @@ spring:
   config:
     activate:
       on-profile: mysql
+  jms:
+    servicebus:
+      connection-string: ${spring.jms.servicebus.connectionstring}
+      idle-timeout: 60000
+      pricing-tier: premium
+  
   datasource:
     schema: classpath*:db/mysql/schema.sql
     data: classpath*:db/mysql/data.sql
@@ -94,8 +100,4 @@ spring:
             endpoint: https://springappskvb3d5b2.vault.azure.net/
             credential.managed-identity-enabled: true
   
-    jms:
-      servicebus:
-        connection-string: ${spring.jms.servicebus.connectionstring}
-        idle-timeout: 60000
-        pricing-tier: premium
+
