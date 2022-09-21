@@ -84,13 +84,18 @@ spring:
     password: ${SPRING-DATASOURCE-PASSWORD} #  Home2Made4Stuf$ ${MYSQL_SERVER_ADMIN_PASSWORD}
     initialization-mode: ALWAYS
     
-cloud:
-  azure:
-    keyvault:
-      secret:
-       property-source-enabled: true
-       property-sources:
-        - name: key-vault-property-source-1
-          endpoint: https://springappskvb3d5b2.vault.azure.net/
-          credential.managed-identity-enabled: true
- 
+  cloud:
+    azure:
+      keyvault:
+        secret:
+          property-source-enabled: true
+          property-sources:
+          - name: key-vault-property-source-1
+            endpoint: https://springappskvb3d5b2.vault.azure.net/
+            credential.managed-identity-enabled: true
+  
+    jms:
+      servicebus:
+        connection-string: ${spring.jms.servicebus.connectionstring}
+        idle-timeout: 60000
+        pricing-tier: premium
