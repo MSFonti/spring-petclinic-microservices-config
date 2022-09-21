@@ -80,7 +80,14 @@ spring:
     schema: classpath*:db/mysql/schema.sql
     data: classpath*:db/mysql/data.sql
     url: jdbc:mysql://springappsmysqlb3d5b2.mysql.database.azure.com:3306/petclinic?useSSL=true
+    username: ${SPRING-DATASOURCE-USERNAME} # ${MYSQL_SERVER_ADMIN_LOGIN_NAME}
+    password: ${SPRING-DATASOURCE-PASSWORD} # ${MYSQL_SERVER_ADMIN_PASSWORD}
     initialization-mode: ALWAYS
+
+
+
+
+
 cloud:
   azure:
     keyvault:
